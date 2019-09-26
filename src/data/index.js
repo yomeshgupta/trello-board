@@ -1,4 +1,4 @@
-export default {
+const Board = {
 	id: 1,
 	title: 'MyPat',
 	meta: {
@@ -74,3 +74,5 @@ export default {
 		}
 	]
 };
+
+export default Board;

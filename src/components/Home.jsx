@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Data from '../data/index';
+import Board from './Board';
 
-class Home extends Component {}
+import 'semantic-ui-css/semantic.min.css';
+
+const Home = () => <Board key={Data.id} {...Data} />;
 
 export default Home;
