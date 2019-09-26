@@ -4,15 +4,11 @@
 	"description": "This is repo contains code for a Trello Board like UI",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --config webpack.prod.config.js",
+		"dev": "webpack-dev-server --config webpack.dev.config.js"
 	},
-	"keywords": [
-		"trello",
-		"board",
-		"ui",
-		"interview",
-		"mockup"
-	],
+	"keywords": ["trello", "board", "ui", "interview", "mockup"],
 	"author": "Yomesh Gupta <yomesh.gupta@gmail.com> (http://www.yomeshgupta.com/)",
 	"license": "MIT",
 	"dependencies": {
