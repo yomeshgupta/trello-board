@@ -1,0 +1,45 @@
+{
+	"name": "trello-board",
+	"version": "1.0.0",
+	"description": "This is repo contains code for a Trello Board like UI",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"trello",
+		"board",
+		"ui",
+		"interview",
+		"mockup"
+	],
+	"author": "Yomesh Gupta <yomesh.gupta@gmail.com> (http://www.yomeshgupta.com/)",
+	"license": "MIT",
+	"dependencies": {
+		"prop-types": "^15.7.2",
+		"react": "^16.8.3",
+		"react-dom": "^16.8.3",
+		"semantic-ui-react": "^0.88.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/plugin-proposal-class-properties": "^7.3.0",
+		"@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+		"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+		"@babel/preset-env": "^7.3.1",
+		"@babel/preset-react": "^7.0.0",
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.0.5",
+		"babel-minify-webpack-plugin": "^0.3.1",
+		"clean-webpack-plugin": "^1.0.1",
+		"copy-webpack-plugin": "^5.0.4",
+		"css-loader": "^2.1.0",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.5.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.1",
+		"uglifyjs-webpack-plugin": "^2.1.2",
+		"webpack": "^4.29.3",
+		"webpack-cli": "^3.2.3",
+		"webpack-dev-server": "^3.1.14"
+	}
+}
