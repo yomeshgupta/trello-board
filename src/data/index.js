@@ -8,71 +8,65 @@ const Board = {
 			value: '#000000'
 		}
 	},
-	lists: [
-		{
+	tasks: {
+		1: {
+			id: 1,
+			title: 'Revolutionize the Indian Education System',
+			description: ''
+		},
+		2: {
+			id: 2,
+			title: 'Collect Feedback on current system',
+			description: ''
+		},
+		3: {
+			id: 3,
+			title: 'Hire Yomesh Gupta',
+			description: ''
+		},
+		4: {
+			id: 4,
+			title: 'Build new products',
+			description: ''
+		},
+		5: {
+			id: 5,
+			title: 'MyPat new features',
+			description: ''
+		},
+		6: {
+			id: 6,
+			title: 'Make FITJEE deal',
+			description: ''
+		}
+	},
+	lists: {
+		1: {
 			id: 1,
 			title: 'Ideas',
 			description: '',
-			cards: [
-				{
-					id: 1,
-					title: 'Revolutionize the Indian Education System',
-					description: ''
-				},
-				{
-					id: 2,
-					title: 'Collect Feedback on current system',
-					description: ''
-				}
-			]
+			taskIds: [1, 2]
 		},
-		{
+		2: {
 			id: 2,
 			title: 'In Progress',
 			description: '',
-			cards: [
-				{
-					id: 1,
-					title: 'Hire Yomesh Gupta',
-					description: ''
-				},
-				{
-					id: 2,
-					title: 'Build new products',
-					description: ''
-				}
-			]
+			taskIds: [3, 4]
 		},
-		{
+		3: {
 			id: 3,
 			title: 'Testing',
 			description: '',
-			cards: [
-				{
-					id: 1,
-					title: 'MyPat new features',
-					description: ''
-				}
-			]
+			taskIds: [5]
 		},
-		{
+		4: {
 			id: 4,
 			title: 'Done',
 			description: '',
-			cards: [
-				{
-					id: 1,
-					title: 'Find market fit',
-					description: ''
-				},
-				{
-					id: 2,
-					title: 'Send this test to Yomesh Gupta',
-					description: ''
-				}
-			]
+			taskIds: [6]
 		}
-	]
+	},
+	listOrder: [1, 2, 3, 4]
 };
 
 export default Board;
