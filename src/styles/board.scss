@@ -1,0 +1,12 @@
+.board-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.board-header,
+#board {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}

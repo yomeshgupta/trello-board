@@ -4,6 +4,6 @@ import Board from './Board';
 
 import 'semantic-ui-css/semantic.min.css';
 
-const Home = () => <Board key={Data.id} {...Data} />;
+const Home = () => <Board {...Data} />;
 
 export default Home;
