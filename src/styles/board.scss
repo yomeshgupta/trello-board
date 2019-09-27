@@ -1,12 +1,47 @@
 .board-wrapper {
 	display: flex;
 	flex-direction: column;
+
+	.board-header,
+	#board {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 
-.board-header,
-#board {
-	width: 100%;
+.lists {
 	display: flex;
 	flex-direction: row;
-	align-items: flex-start;
+
+	.list {
+		margin: 8px;
+		border: 1px solid lightgrey;
+		background-color: white;
+		border-radius: 3px;
+		width: 220px;
+
+		.list-header {
+			padding: 8px;
+			margin: 0px;
+		}
+
+		.tasks {
+			padding: 8px;
+			transition: background-color 0.2 ease;
+			background-color: white;
+			flex-grow: 1;
+			min-height: 100px;
+
+			.task {
+				border: 1px solid lightgrey;
+				border-radius: 3px;
+				padding: 8px;
+				margin-bottom: 8px;
+				transition: background-color 0.2 ease;
+				background-color: 'white';
+			}
+		}
+	}
 }

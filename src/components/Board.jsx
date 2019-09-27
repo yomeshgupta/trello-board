@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Lists from './Lists/index';
 import '../styles/board.scss';
 
 class Board extends Component {
@@ -8,20 +9,18 @@ class Board extends Component {
 		this.state = { ...this.props };
 	}
 
+	renderHeader = () => {
+		const { title } = this.props;
+		return <div className="board-header">{title}</div>;
+	};
+
 	render() {
-		const { title, tasks, lists, listOrder } = this.state;
+		const { tasks, lists, listOrder } = this.state;
 		return (
 			<div className="board-wrapper">
-				<div className="board-header">Header</div>
 				<div id="board">
-					{listOrder.map(listId => {
-						const list = lists[listId];
-						return (
-							<div className="list" key={`list-${list.id}`}>
-								{list.title}
-							</div>
-						);
-					})}
+					{this.renderHeader()}
+					<Lists tasks={tasks} lists={lists} listOrder={listOrder} />
 				</div>
 			</div>
 		);
