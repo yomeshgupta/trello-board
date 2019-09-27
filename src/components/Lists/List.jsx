@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Tasks from './Tasks';
+import Tasks from './Tasks/index';
 
 class List extends Component {
 	render() {
