@@ -50,7 +50,7 @@ function reducer(state, action) {
 			return {
 				...state,
 				meta: {
-					...meta,
+					...state.meta,
 					isBookmarked: !state.meta.isBookmarked
 				}
 			};

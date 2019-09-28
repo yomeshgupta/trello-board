@@ -78,10 +78,12 @@ class Board extends Component {
 		});
 	};
 
-	toggleBookmark = () =>
-		dispatch({
+	toggleBookmark = () => {
+		const { dispatch } = this.props;
+		return dispatch({
 			type: STATE_ACTIONS.UPDATE_BOOKMARK
 		});
+	};
 
 	render() {
 		const {
@@ -89,14 +91,14 @@ class Board extends Component {
 			tasks,
 			lists,
 			listOrder,
-			meta: { background },
+			meta: { background, isBookmarked },
 			dispatch
 		} = this.props;
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
 				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
 					<div id="board" role="region">
-						<Menu title={title} toggleBookmark={this.toggleBookmark} />
+						<Menu title={title} toggleBookmark={this.toggleBookmark} isBookmarked={isBookmarked} />
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
 				</div>
