@@ -9,12 +9,39 @@
 	position: relative;
 	height: 100%;
 
-	.board-header,
+	.board-menu,
 	#board {
 		width: 100%;
 		display: flex;
-		flex-direction: column;
 		align-items: flex-start;
+	}
+	#board {
+		flex-direction: column;
+	}
+	.board-menu {
+		flex-direction: row;
+		padding: 8px 4px 4px 8px;
+
+		.controls {
+			display: flex;
+			flex-direction: row;
+
+			.u-btn-transparent {
+				text-align: center;
+				color: white;
+				padding: 5px;
+				margin: 5px;
+			}
+
+			#menu-heading {
+				background: transparent !important;
+				font-weight: bold;
+			}
+
+			#bookmark-icon {
+				min-width: 10px;
+			}
+		}
 	}
 }
 
@@ -115,12 +142,10 @@
 
 .add-list-section {
 	width: 260px;
-	background: hsla(0, 0%, 100%, 0.24);
-	border-radius: 3px;
-	margin: 8px;
 	height: 100%;
 
 	&.composer-form {
-		background: white;
+		color: #000;
+		background: white !important;
 	}
 }

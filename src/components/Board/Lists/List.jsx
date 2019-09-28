@@ -3,6 +3,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import Tasks from './Tasks/index';
 import Composer from '../../shared/Composer';
+import { STATE_ACTIONS } from '../../../constants/index';
 
 class List extends Component {
 	saveHandler = data => {
@@ -13,11 +14,11 @@ class List extends Component {
 		updatedTasksIds.push(data.id);
 
 		dispatch({
-			type: 'ADD_TASK',
+			type: STATE_ACTIONS.ADD_TASK,
 			data
 		});
 		return dispatch({
-			type: 'UPDATE_LIST',
+			type: STATE_ACTIONS.UPDATE_LIST,
 			data: {
 				id: list.id,
 				toUpdate: {

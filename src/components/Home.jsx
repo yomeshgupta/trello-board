@@ -1,12 +1,13 @@
 import React, { useReducer } from 'react';
+import 'semantic-ui-css/semantic.min.css';
+
 import initialData from '../data/index';
 import Board from './Board/index';
-
-import 'semantic-ui-css/semantic.min.css';
+import { STATE_ACTIONS } from '../constants/index';
 
 function reducer(state, action) {
 	switch (action.type) {
-		case 'UPDATE_LIST': {
+		case STATE_ACTIONS.UPDATE_LIST: {
 			return {
 				...state,
 				lists: {
@@ -18,14 +19,14 @@ function reducer(state, action) {
 				}
 			};
 		}
-		case 'UPDATE_LIST_ORDER': {
+		case STATE_ACTIONS.UPDATE_LIST_ORDER: {
 			return {
 				...state,
 				listOrder: action.data.toUpdate
 			};
 		}
 
-		case 'ADD_TASK': {
+		case STATE_ACTIONS.ADD_TASK: {
 			return {
 				...state,
 				tasks: {
@@ -35,12 +36,22 @@ function reducer(state, action) {
 			};
 		}
 
-		case 'ADD_LIST': {
+		case STATE_ACTIONS.ADD_LIST: {
 			return {
 				...state,
 				lists: {
 					...state.lists,
 					[action.data.id]: action.data
+				}
+			};
+		}
+
+		case STATE_ACTIONS.UPDATE_BOOKMARK: {
+			return {
+				...state,
+				meta: {
+					...meta,
+					isBookmarked: !state.meta.isBookmarked
 				}
 			};
 		}

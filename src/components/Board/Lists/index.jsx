@@ -3,6 +3,7 @@ import { Droppable } from 'react-beautiful-dnd';
 
 import List from './List';
 import Composer from '../../shared/Composer';
+import { STATE_ACTIONS } from '../../../constants/index';
 
 class Lists extends Component {
 	saveHandler = data => {
@@ -14,11 +15,11 @@ class Lists extends Component {
 		updatedListOrder.push(data.id);
 
 		dispatch({
-			type: 'ADD_LIST',
+			type: STATE_ACTIONS.ADD_LIST,
 			data
 		});
 		return dispatch({
-			type: 'UPDATE_LIST_ORDER',
+			type: STATE_ACTIONS.UPDATE_LIST_ORDER,
 			data: {
 				toUpdate: updatedListOrder
 			}
@@ -32,7 +33,7 @@ class Lists extends Component {
 			<Droppable droppableId="all-lists" direction="horizontal" type="list">
 				{provided => {
 					return (
-						<div className="lists" {...provided.droppableProps} ref={provided.innerRef}>
+						<div className="lists" {...provided.droppableProps} ref={provided.innerRef} role="list">
 							{listOrder.map((listId, index) => {
 								const list = lists[listId];
 								return (
@@ -46,7 +47,11 @@ class Lists extends Component {
 								);
 							})}
 							{provided.placeholder}
-							<Composer title="Add List" onSave={this.saveHandler} classNames="add-list-section" />
+							<Composer
+								title="Add List"
+								onSave={this.saveHandler}
+								classNames="add-list-section u-btn-transparent"
+							/>
 						</div>
 					);
 				}}

@@ -1,8 +1,9 @@
 const Board = {
 	id: 1,
-	title: 'MyPat',
+	title: 'MyPat Things To Do',
 	meta: {
 		slug: 'mypat',
+		isBookmarked: false,
 		background: {
 			type: 1,
 			value: 'rgb(0, 121, 191)'

@@ -17,6 +17,9 @@ body {
 .u-text-pointer {
 	cursor: pointer;
 }
+.u-margin-r2 {
+	margin-right: 10px;
+}
 .u-btn-primary {
 	box-sizing: border-box;
 	-webkit-appearance: none;
@@ -39,6 +42,17 @@ body {
 
 	&:hover {
 		background-color: #295f10;
+	}
+}
+.u-btn-transparent {
+	min-width: 70px;
+	background: hsla(0, 0%, 100%, 0.24);
+	color: white;
+	border-radius: 3px;
+	margin: 8px;
+
+	&:hover {
+		background: hsla(0, 0%, 100%, 0.4);
 	}
 }
 

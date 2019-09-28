@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import Header from './Header';
+import Menu from './Menu';
 import Lists from './Lists/index';
+import { STATE_ACTIONS } from '../../constants/index';
 import '../../styles/board.scss';
 
 class Board extends Component {
@@ -77,6 +78,11 @@ class Board extends Component {
 		});
 	};
 
+	toggleBookmark = () =>
+		dispatch({
+			type: STATE_ACTIONS.UPDATE_BOOKMARK
+		});
+
 	render() {
 		const {
 			title,
@@ -90,7 +96,7 @@ class Board extends Component {
 			<DragDropContext onDragEnd={this.onDragEnd}>
 				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
 					<div id="board" role="region">
-						<Header title={title} />
+						<Menu title={title} toggleBookmark={this.toggleBookmark} />
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
 				</div>
