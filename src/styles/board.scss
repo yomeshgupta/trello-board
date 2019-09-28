@@ -22,16 +22,16 @@
 		flex-direction: row;
 		padding: 8px 4px 4px 8px;
 
+		.u-btn-transparent {
+			text-align: center;
+			color: white;
+			padding: 5px;
+			margin: 5px;
+		}
+
 		.controls {
 			display: flex;
 			flex-direction: row;
-
-			.u-btn-transparent {
-				text-align: center;
-				color: white;
-				padding: 5px;
-				margin: 5px;
-			}
 
 			#menu-heading {
 				background: transparent !important;
@@ -40,6 +40,15 @@
 
 			#bookmark-icon {
 				min-width: 10px;
+			}
+		}
+		#menu-btn {
+			margin-left: auto;
+			justify-self: flex-end;
+			padding: 7px;
+
+			span {
+				margin-left: 5px;
 			}
 		}
 	}
