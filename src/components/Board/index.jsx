@@ -9,25 +9,55 @@ class Board extends Component {
 	onDragEnd = ({ draggableId, source, destination }) => {
 		const hasDestination = !!destination;
 		const isSamePosition = hasDestination
-			? !!(destination.droppableId === source.droppableId && destination.index === source.index)
+			? destination.droppableId === source.droppableId && destination.index === source.index
 			: false;
-		const shouldReturn = !!(!hasDestination || isSamePosition);
+		const shouldReturn = !hasDestination || isSamePosition;
 
 		if (shouldReturn) return;
-
 		const { lists, dispatch } = this.props;
-		const list = lists[source.droppableId];
-		const updatedTaskIds = [...list.taskIds];
+		const start = lists[source.droppableId];
+		const finish = lists[destination.droppableId];
+		const isSameColumn = start === finish;
 
-		updatedTaskIds.splice(source.index, 1);
-		updatedTaskIds.splice(destination.index, 0, draggableId);
+		if (isSameColumn) {
+			const list = lists[source.droppableId];
+			const updatedTaskIds = [...list.taskIds];
+
+			updatedTaskIds.splice(source.index, 1);
+			updatedTaskIds.splice(destination.index, 0, draggableId);
+
+			return dispatch({
+				type: 'UPDATE_LIST',
+				data: {
+					id: list.id,
+					toUpdate: {
+						taskIds: updatedTaskIds
+					}
+				}
+			});
+		}
+
+		const startUpdatedTaskIds = [...start.taskIds];
+		startUpdatedTaskIds.splice(source.index, 1);
+
+		const finishUpdatedTasks = [...finish.taskIds];
+		finishUpdatedTasks.splice(destination.index, 0, draggableId);
 
 		dispatch({
 			type: 'UPDATE_LIST',
 			data: {
-				id: list.id,
+				id: start.id,
 				toUpdate: {
-					taskIds: updatedTaskIds
+					taskIds: startUpdatedTaskIds
+				}
+			}
+		});
+		return dispatch({
+			type: 'UPDATE_LIST',
+			data: {
+				id: finish.id,
+				toUpdate: {
+					taskIds: finishUpdatedTasks
 				}
 			}
 		});
@@ -43,8 +73,8 @@ class Board extends Component {
 		} = this.props;
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
-				<div className="board-wrapper" style={{ backgroundColor: background.value }}>
-					<div id="board">
+				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
+					<div id="board" role="region">
 						<Header title={title} />
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} />
 					</div>
