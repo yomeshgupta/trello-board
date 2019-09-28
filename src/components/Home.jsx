@@ -35,6 +35,16 @@ function reducer(state, action) {
 			};
 		}
 
+		case 'ADD_LIST': {
+			return {
+				...state,
+				lists: {
+					...state.lists,
+					[action.data.id]: action.data
+				}
+			};
+		}
+
 		default:
 			return state;
 	}

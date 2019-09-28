@@ -27,7 +27,7 @@ const Composer = ({ classNames, onSave, title }) => {
 		);
 	}
 	return (
-		<form className={`composer ${classNames}`} onSubmit={saveHandler}>
+		<form className={`composer composer-form ${classNames}`} onSubmit={saveHandler}>
 			<div className="card" role="region">
 				<textarea
 					className="composer-textarea"

@@ -2,8 +2,29 @@ import React, { Component } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
 import List from './List';
+import Composer from '../../shared/Composer';
 
 class Lists extends Component {
+	saveHandler = data => {
+		const { dispatch, listOrder } = this.props;
+		const updatedListOrder = [...listOrder];
+
+		data.id = `list-${data.id}`;
+		data.taskIds = [];
+		updatedListOrder.push(data.id);
+
+		dispatch({
+			type: 'ADD_LIST',
+			data
+		});
+		return dispatch({
+			type: 'UPDATE_LIST_ORDER',
+			data: {
+				toUpdate: updatedListOrder
+			}
+		});
+	};
+
 	render() {
 		const { tasks, lists, listOrder, dispatch } = this.props;
 
@@ -25,6 +46,7 @@ class Lists extends Component {
 								);
 							})}
 							{provided.placeholder}
+							<Composer title="Add List" onSave={this.saveHandler} classNames="add-list-section" />
 						</div>
 					);
 				}}
