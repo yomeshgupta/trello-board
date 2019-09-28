@@ -24,6 +24,17 @@ function reducer(state, action) {
 				listOrder: action.data.toUpdate
 			};
 		}
+
+		case 'ADD_TASK': {
+			return {
+				...state,
+				tasks: {
+					...state.tasks,
+					[action.data.id]: action.data
+				}
+			};
+		}
+
 		default:
 			return state;
 	}

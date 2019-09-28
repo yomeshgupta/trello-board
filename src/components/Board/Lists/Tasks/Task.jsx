@@ -6,7 +6,7 @@ const Task = ({ id, title, index }) => {
 		<Draggable draggableId={id} index={index}>
 			{provided => (
 				<div
-					className="task"
+					className="task card"
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}

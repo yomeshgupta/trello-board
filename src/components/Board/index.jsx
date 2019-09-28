@@ -83,14 +83,15 @@ class Board extends Component {
 			tasks,
 			lists,
 			listOrder,
-			meta: { background }
+			meta: { background },
+			dispatch
 		} = this.props;
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
 				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
 					<div id="board" role="region">
 						<Header title={title} />
-						<Lists tasks={tasks} lists={lists} listOrder={listOrder} />
+						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
 				</div>
 			</DragDropContext>

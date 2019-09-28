@@ -44,23 +44,70 @@
 			transition: background-color 0.2 ease;
 			flex-grow: 1 1 auto;
 			min-height: 0px;
-
-			.task {
-				border: 1px solid lightgrey;
-				border-radius: 3px;
-				padding: 8px;
-				margin-bottom: 8px;
-				transition: background-color 0.2 ease;
-				background-color: white;
-
-				&:hover {
-					background-color: #f4f5f7;
-				}
-			}
 		}
+	}
+}
+
+.card {
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	padding: 8px;
+	margin-bottom: 8px;
+	transition: background-color 0.2 ease;
+	background-color: white;
+	box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+
+	&:hover {
+		background-color: #f4f5f7;
 	}
 }
 
 .composer {
 	padding: 8px;
+
+	.composer-textarea {
+		user-select: none;
+		unicode-bidi: -webkit-plaintext;
+		margin: 0;
+		font-weight: 400;
+		color: #172b4d;
+		-webkit-appearance: none;
+		border-radius: 3px;
+		display: block;
+		line-height: 20px;
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: 85ms;
+		transition-timing-function: ease;
+		resize: vertical;
+		width: 100%;
+		background: none;
+		border: none;
+		box-shadow: none;
+		margin-bottom: 4px;
+		max-height: 162px;
+		min-height: 54px;
+		padding: 0;
+		overflow: hidden;
+		overflow-wrap: break-word;
+		height: 40px;
+
+		&:focus {
+			border: none;
+			outline: none;
+
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+		}
+	}
+
+	.controls {
+		display: flex;
+		align-items: center;
+	}
+}
+.composer-add {
+	&:hover {
+		background-color: #d1d3d8;
+	}
 }

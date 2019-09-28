@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto';
+	font-size: 16px;
 }
 
 html,
@@ -10,3 +11,62 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+.u-text-pointer {
+	cursor: pointer;
+}
+.u-btn-primary {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 400;
+	line-height: 20px;
+	margin: 8px 4px 0 0;
+	padding: 6px 12px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+	vertical-align: top;
+	background-color: #49852e;
+	box-shadow: none;
+	border: none;
+	color: #fff;
+	min-width: 70px;
+
+	&:hover {
+		background-color: #295f10;
+	}
+}
+
+/** ICONS START **/
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	margin-top: -0.2em;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.icon--fill {
+	background-color: currentColor;
+	fill: #fff;
+}
+.icon--round {
+	border-radius: 4px;
+}
+.icon--circle {
+	border-radius: 50%;
+}
+.icon--border {
+	border: 1px solid currentColor;
+}
+.icon-close {
+	color: inherit;
+	vertical-align: middle;
+	margin-left: 5px;
+	font-size: 18px;
+}
+/** ICONS END **/

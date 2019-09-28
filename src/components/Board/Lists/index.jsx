@@ -5,7 +5,7 @@ import List from './List';
 
 class Lists extends Component {
 	render() {
-		const { tasks, lists, listOrder } = this.props;
+		const { tasks, lists, listOrder, dispatch } = this.props;
 
 		return (
 			<Droppable droppableId="all-lists" direction="horizontal" type="list">
@@ -14,7 +14,15 @@ class Lists extends Component {
 						<div className="lists" {...provided.droppableProps} ref={provided.innerRef}>
 							{listOrder.map((listId, index) => {
 								const list = lists[listId];
-								return <List key={`${list.id}`} list={list} taskMap={tasks} index={index} />;
+								return (
+									<List
+										key={`${list.id}`}
+										list={list}
+										taskMap={tasks}
+										index={index}
+										dispatch={dispatch}
+									/>
+								);
 							})}
 							{provided.placeholder}
 						</div>
