@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import 'semantic-ui-css/semantic.min.css';
+// import 'semantic-ui-css/semantic.min.css';
 
 import initialData from '../data/index';
 import Board from './Board/index';

@@ -3,10 +3,15 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import Menu from './Menu';
 import Lists from './Lists/index';
+import BoardMenu from './BoardMenu';
 import { STATE_ACTIONS } from '../../constants/index';
 import '../../styles/board.scss';
 
 class Board extends Component {
+	state = {
+		showMenu: false
+	};
+
 	onDragEnd = ({ draggableId, source, destination, type }) => {
 		const hasDestination = !!destination;
 		const isSamePosition = hasDestination
@@ -85,6 +90,8 @@ class Board extends Component {
 		});
 	};
 
+	toggleMenu = () => this.setState(state => ({ showMenu: !state.showMenu }));
+
 	render() {
 		const {
 			title,
@@ -94,13 +101,20 @@ class Board extends Component {
 			meta: { background, isBookmarked },
 			dispatch
 		} = this.props;
+		const { showMenu } = this.state;
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
 				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
 					<div id="board" role="region">
-						<Menu title={title} toggleBookmark={this.toggleBookmark} isBookmarked={isBookmarked} />
+						<Menu
+							title={title}
+							isBookmarked={isBookmarked}
+							toggleBookmark={this.toggleBookmark}
+							toggleMenu={this.toggleMenu}
+						/>
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
+					{showMenu ? <BoardMenu toggleMenu={this.toggleMenu} /> : null}
 				</div>
 			</DragDropContext>
 		);

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Menu = ({ title, isBookmarked, toggleBookmark }) => {
+const Menu = ({ title, isBookmarked, toggleBookmark, toggleMenu }) => {
 	return (
-		<div className="board-menu" role="region">
+		<div className="menu" role="region">
 			<div className="controls" role="navigation">
 				<h3 role="heading" className="u-btn-transparent" id="menu-heading" title={title}>
 					{title}
@@ -28,7 +28,7 @@ const Menu = ({ title, isBookmarked, toggleBookmark }) => {
 					Invite
 				</div>
 			</div>
-			<div className="u-btn-transparent u-text-pointer" role="button" id="menu-btn">
+			<div className="u-btn-transparent u-text-pointer" role="button" id="menu-btn" onClick={toggleMenu}>
 				<svg viewBox="0 0 32 32" className="icon icon-more" viewBox="0 0 32 32" aria-hidden="true">
 					<path d="M10.429 16a2.715 2.715 0 1 1-5.43 0 2.715 2.715 0 0 1 5.43 0zM16 13.286a2.715 2.715 0 1 0 .001 5.429A2.715 2.715 0 0 0 16 13.286zm8.285 0a2.714 2.714 0 1 0 0 5.428 2.714 2.714 0 0 0 0-5.428z" />
 				</svg>
