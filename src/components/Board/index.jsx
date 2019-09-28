@@ -6,7 +6,32 @@ import Lists from './Lists/index';
 import '../../styles/board.scss';
 
 class Board extends Component {
-	onDragEnd = () => {};
+	onDragEnd = ({ draggableId, source, destination }) => {
+		const hasDestination = !!destination;
+		const isSamePosition = hasDestination
+			? !!(destination.droppableId === source.droppableId && destination.index === source.index)
+			: false;
+		const shouldReturn = !!(!hasDestination || isSamePosition);
+
+		if (shouldReturn) return;
+
+		const { lists, dispatch } = this.props;
+		const list = lists[source.droppableId];
+		const updatedTaskIds = [...list.taskIds];
+
+		updatedTaskIds.splice(source.index, 1);
+		updatedTaskIds.splice(destination.index, 0, draggableId);
+
+		dispatch({
+			type: 'UPDATE_LIST',
+			data: {
+				id: list.id,
+				toUpdate: {
+					taskIds: updatedTaskIds
+				}
+			}
+		});
+	};
 
 	render() {
 		const {

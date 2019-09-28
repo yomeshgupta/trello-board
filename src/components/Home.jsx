@@ -6,6 +6,18 @@ import 'semantic-ui-css/semantic.min.css';
 
 function reducer(state, action) {
 	switch (action.type) {
+		case 'UPDATE_LIST': {
+			return {
+				...state,
+				lists: {
+					...state.lists,
+					[action.data.id]: {
+						...state.lists[action.data.id],
+						...action.data.toUpdate
+					}
+				}
+			};
+		}
 		default:
 			return state;
 	}
@@ -13,7 +25,6 @@ function reducer(state, action) {
 
 const Home = () => {
 	const [state, dispatch] = useReducer(reducer, initialData);
-
 	return <Board {...state} dispatch={dispatch} />;
 };
 
