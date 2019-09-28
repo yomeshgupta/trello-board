@@ -5,7 +5,7 @@ const Board = {
 		slug: 'mypat',
 		background: {
 			type: 1,
-			value: '#000000'
+			value: 'rgb(0, 121, 191)'
 		}
 	},
 	tasks: {
