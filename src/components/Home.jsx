@@ -18,6 +18,12 @@ function reducer(state, action) {
 				}
 			};
 		}
+		case 'UPDATE_LIST_ORDER': {
+			return {
+				...state,
+				listOrder: action.data.toUpdate
+			};
+		}
 		default:
 			return state;
 	}

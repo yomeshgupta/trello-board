@@ -9,64 +9,64 @@ const Board = {
 		}
 	},
 	tasks: {
-		1: {
-			id: 1,
+		'task-1': {
+			id: 'task-1',
 			title: 'Revolutionize the Indian Education System',
 			description: ''
 		},
-		2: {
-			id: 2,
+		'task-2': {
+			id: 'task-2',
 			title: 'Collect Feedback on current system',
 			description: ''
 		},
-		3: {
-			id: 3,
+		'task-3': {
+			id: 'task-3',
 			title: 'Hire Yomesh Gupta',
 			description: ''
 		},
-		4: {
-			id: 4,
+		'task-4': {
+			id: 'task-4',
 			title: 'Build new products',
 			description: ''
 		},
-		5: {
-			id: 5,
+		'task-5': {
+			id: 'task-5',
 			title: 'MyPat new features',
 			description: ''
 		},
-		6: {
-			id: 6,
+		'task-6': {
+			id: 'task-6',
 			title: 'Make FITJEE deal',
 			description: ''
 		}
 	},
 	lists: {
-		1: {
-			id: 1,
+		'list-1': {
+			id: 'list-1',
 			title: 'Ideas',
 			description: '',
-			taskIds: [1, 2]
+			taskIds: ['task-1', 'task-2']
 		},
-		2: {
-			id: 2,
+		'list-2': {
+			id: 'list-2',
 			title: 'In Progress',
 			description: '',
-			taskIds: [3, 4]
+			taskIds: ['task-3', 'task-4']
 		},
-		3: {
-			id: 3,
+		'list-3': {
+			id: 'list-3',
 			title: 'Testing',
 			description: '',
-			taskIds: [5]
+			taskIds: ['task-5']
 		},
-		4: {
-			id: 4,
+		'list-4': {
+			id: 'list-4',
 			title: 'Done',
 			description: '',
-			taskIds: [6]
+			taskIds: ['task-6']
 		}
 	},
-	listOrder: [1, 2, 3, 4]
+	listOrder: ['list-1', 'list-2', 'list-3', 'list-4']
 };
 
 export default Board;

@@ -6,15 +6,29 @@ import Lists from './Lists/index';
 import '../../styles/board.scss';
 
 class Board extends Component {
-	onDragEnd = ({ draggableId, source, destination }) => {
+	onDragEnd = ({ draggableId, source, destination, type }) => {
 		const hasDestination = !!destination;
 		const isSamePosition = hasDestination
 			? destination.droppableId === source.droppableId && destination.index === source.index
 			: false;
 		const shouldReturn = !hasDestination || isSamePosition;
+		const { lists, listOrder, dispatch } = this.props;
 
 		if (shouldReturn) return;
-		const { lists, dispatch } = this.props;
+
+		if (type.toLowerCase() === 'list') {
+			const updatedListOrder = [...listOrder];
+			updatedListOrder.splice(source.index, 1);
+			updatedListOrder.splice(destination.index, 0, draggableId);
+
+			return dispatch({
+				type: 'UPDATE_LIST_ORDER',
+				data: {
+					toUpdate: updatedListOrder
+				}
+			});
+		}
+
 		const start = lists[source.droppableId];
 		const finish = lists[destination.droppableId];
 		const isSameColumn = start === finish;
