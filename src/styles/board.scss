@@ -3,6 +3,7 @@
 	height: 100vh;
 }
 
+/** BOARD START **/
 .board-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -172,6 +173,7 @@
 	}
 }
 
+/** LIST START **/
 .lists {
 	display: flex;
 	flex-direction: row;
@@ -227,10 +229,10 @@
 					display: inline-block;
 				}
 			}
-			// overflow: auto;
 		}
 	}
 }
+/** LIST END **/
 
 .card {
 	border: 1px solid lightgrey;
@@ -306,6 +308,7 @@
 	}
 }
 
+/* MENU START */
 header.banner {
 	display: flex;
 	flex-direction: row;
@@ -359,3 +362,5 @@ header.banner {
 	padding: 10px;
 	margin: 10px 0px;
 }
+/** MENU END **/
+/** BOARD END **/
