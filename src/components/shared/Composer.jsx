@@ -43,7 +43,7 @@ const Composer = ({ classNames, onSave, title, defaultValue, defaultFormValue, o
 				/>
 			</div>
 			<div className="controls" role="region">
-				<input type="submit" value="Add" aria-label={title} className="u-btn-primary" />
+				<input type="submit" value={title} aria-label={title} className="u-btn-primary" />
 				<span
 					onClick={toggleHandler}
 					role="button"

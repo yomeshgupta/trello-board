@@ -1,14 +1,14 @@
 #root {
-	flex: 1 1 auto;
-	height: 100vh;
+	display: flex;
+	min-width: 100vw;
 }
 
 /** BOARD START **/
 .board-wrapper {
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	position: relative;
-	height: 100%;
 
 	.menu,
 	#board {
@@ -17,6 +17,7 @@
 		align-items: flex-start;
 	}
 	#board {
+		min-height: 100vh;
 		flex-direction: column;
 	}
 	.board-header {
@@ -201,12 +202,12 @@
 
 		.tasks {
 			padding: 8px;
-			transition: background-color 0.2 ease;
-			flex-grow: 1 1 auto;
+			flex-grow: 1;
 			min-height: 0px;
-			max-height: 90%;
 			word-break: break-word;
 			word-wrap: break-word;
+			max-height: 400px;
+			overflow: auto;
 
 			.edit-icon,
 			.control-icon {

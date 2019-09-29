@@ -12,7 +12,7 @@ class Tasks extends Component {
 			<Droppable droppableId={id} type="task">
 				{provided => (
 					<div {...provided.droppableProps} ref={provided.innerRef}>
-						<div className="tasks">
+						<div className="tasks custom-scrollbar">
 							{tasks.map((task, index) => {
 								return (
 									<Task
@@ -35,7 +35,7 @@ class Tasks extends Component {
 }
 
 Tasks.propTypes = {
-	tasks: Proptypes.object.isRequired,
+	tasks: Proptypes.array.isRequired,
 	id: Proptypes.oneOfType([Proptypes.number, Proptypes.string]).isRequired,
 	deleteTask: Proptypes.func.isRequired,
 	dispatch: Proptypes.func.isRequired

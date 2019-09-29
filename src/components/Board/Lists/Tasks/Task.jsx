@@ -28,7 +28,7 @@ const Task = ({ id, title, index, deleteTask, dispatch }) => {
 
 	if (edit)
 		return (
-			<Composer defaultValue={title} title={'Save'} onCancel={toggleEdit} onSave={handleSave} defaultFormValue />
+			<Composer defaultValue={title} title="Save" onCancel={toggleEdit} onSave={handleSave} defaultFormValue />
 		);
 
 	return (
@@ -77,7 +77,7 @@ const Task = ({ id, title, index, deleteTask, dispatch }) => {
 Task.propTypes = {
 	title: Proptypes.string.isRequired,
 	id: Proptypes.oneOfType([Proptypes.number, Proptypes.string]).isRequired,
-	id: Proptypes.number.isRequired,
+	index: Proptypes.number.isRequired,
 	deleteTask: Proptypes.func.isRequired,
 	dispatch: Proptypes.func.isRequired
 };
