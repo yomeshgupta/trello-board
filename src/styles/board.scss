@@ -203,10 +203,10 @@
 		.tasks {
 			padding: 8px;
 			flex-grow: 1;
-			min-height: 0px;
+			min-height: 10px;
 			word-break: break-word;
 			word-wrap: break-word;
-			max-height: 400px;
+			max-height: 450px;
 			overflow: auto;
 
 			.edit-icon,
