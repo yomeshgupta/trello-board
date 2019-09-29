@@ -46,13 +46,19 @@ const Menu = ({ toggleMenu, users, background, setView }) => {
 			<div className="board-menu-content">
 				<Users users={users} />
 				<UserInvitation />
-				<div className="change-bg u-text-pointer" onClick={() => setView(2)}>
+				<div className="navigation-item u-text-pointer" onClick={() => setView(2)}>
 					<div
 						style={{
 							backgroundColor: background
 						}}
 					></div>
 					Change Background
+				</div>
+				<div className="navigation-item u-text-pointer" onClick={() => setView(3)}>
+					<svg viewBox="0 0 32 32" className="icon icon-search" viewBox="0 0 32 32" aria-hidden="true">
+						<path d="M27 24.57l-5.647-5.648a8.895 8.895 0 0 0 1.522-4.984C22.875 9.01 18.867 5 13.938 5 9.01 5 5 9.01 5 13.938c0 4.929 4.01 8.938 8.938 8.938a8.887 8.887 0 0 0 4.984-1.522L24.568 27 27 24.57zm-13.062-4.445a6.194 6.194 0 0 1-6.188-6.188 6.195 6.195 0 0 1 6.188-6.188 6.195 6.195 0 0 1 6.188 6.188 6.195 6.195 0 0 1-6.188 6.188z" />
+					</svg>
+					Filter Cards
 				</div>
 			</div>
 		</Fragment>
@@ -82,7 +88,18 @@ const Background = ({ dispatch, setView }) => {
 	);
 };
 
-const BoardMenu = ({ toggleMenu, users, background, dispatch }) => {
+const Filter = ({ query, setQuery, setView }) => {
+	return (
+		<Fragment>
+			<Banner title="Filter Cards" onClose={() => setView(1)} />
+			<form className="filter-cards-form">
+				<input name="search" value={query} onChange={e => setQuery(e.target.value)} className="search" />
+			</form>
+		</Fragment>
+	);
+};
+
+const BoardMenu = ({ users, background, query, dispatch, setQuery, toggleMenu }) => {
 	const [view, setView] = useState(1);
 
 	function renderView() {
@@ -93,6 +110,9 @@ const BoardMenu = ({ toggleMenu, users, background, dispatch }) => {
 			}
 			case 2: {
 				return <Background setView={setView} dispatch={dispatch} />;
+			}
+			case 3: {
+				return <Filter setView={setView} query={query} setQuery={setQuery} />;
 			}
 		}
 	}

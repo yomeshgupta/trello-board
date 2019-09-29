@@ -29,9 +29,14 @@ class List extends Component {
 	};
 
 	render() {
-		const { taskMap, list, index } = this.props;
+		const { taskMap, list, index, query } = this.props;
 		const { id, title, taskIds } = list;
-		const tasks = taskIds.map(taskId => taskMap[taskId]);
+		let tasks = taskIds.map(taskId => taskMap[taskId]);
+
+		if (query) {
+			const pattern = new RegExp(query, 'ig');
+			tasks = tasks.filter(task => task.title.match(pattern));
+		}
 
 		return (
 			<Draggable draggableId={id} index={index}>

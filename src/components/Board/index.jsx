@@ -100,6 +100,8 @@ class Board extends Component {
 			listOrder,
 			meta: { background, isBookmarked },
 			users,
+			query,
+			setQuery,
 			dispatch
 		} = this.props;
 		const { showMenu } = this.state;
@@ -113,7 +115,7 @@ class Board extends Component {
 							toggleBookmark={this.toggleBookmark}
 							toggleMenu={this.toggleMenu}
 						/>
-						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
+						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} query={query} />
 					</div>
 					{showMenu ? (
 						<BoardMenu
@@ -121,6 +123,8 @@ class Board extends Component {
 							users={users}
 							background={background.value}
 							dispatch={dispatch}
+							query={query}
+							setQuery={setQuery}
 						/>
 					) : null}
 				</div>

@@ -27,7 +27,7 @@ class Lists extends Component {
 	};
 
 	render() {
-		const { tasks, lists, listOrder, dispatch } = this.props;
+		const { tasks, lists, listOrder, query, dispatch } = this.props;
 
 		return (
 			<Droppable droppableId="all-lists" direction="horizontal" type="list">
@@ -42,6 +42,7 @@ class Lists extends Component {
 										list={list}
 										taskMap={tasks}
 										index={index}
+										query={query}
 										dispatch={dispatch}
 									/>
 								);

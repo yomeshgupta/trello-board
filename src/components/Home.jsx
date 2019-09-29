@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 // import 'semantic-ui-css/semantic.min.css';
 
 import initialData from '../data/index';
@@ -76,7 +76,9 @@ function reducer(state, action) {
 
 const Home = () => {
 	const [state, dispatch] = useReducer(reducer, initialData);
-	return <Board {...state} dispatch={dispatch} />;
+	const [query, setQuery] = useState('');
+
+	return <Board {...state} dispatch={dispatch} query={query} setQuery={setQuery} />;
 };
 
 export default Home;
