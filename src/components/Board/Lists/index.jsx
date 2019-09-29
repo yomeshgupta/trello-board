@@ -37,7 +37,7 @@ class Lists extends Component {
 					toUpdate: updatedListOrder
 				}
 			});
-			dispatch({
+			return dispatch({
 				type: STATE_ACTIONS.DELETE_LIST,
 				data: {
 					id
