@@ -26,6 +26,26 @@ class Lists extends Component {
 		});
 	};
 
+	deleteHandler = id => {
+		if (window.confirm('Are you sure you want to delete this list?')) {
+			const { listOrder, dispatch } = this.props;
+			const updatedListOrder = [...listOrder].filter(listId => listId !== id);
+
+			dispatch({
+				type: STATE_ACTIONS.UPDATE_LIST_ORDER,
+				data: {
+					toUpdate: updatedListOrder
+				}
+			});
+			dispatch({
+				type: STATE_ACTIONS.DELETE_LIST,
+				data: {
+					id
+				}
+			});
+		}
+	};
+
 	render() {
 		const { tasks, lists, listOrder, query, dispatch } = this.props;
 
@@ -44,6 +64,7 @@ class Lists extends Component {
 										index={index}
 										query={query}
 										dispatch={dispatch}
+										deleteHandler={this.deleteHandler}
 									/>
 								);
 							})}

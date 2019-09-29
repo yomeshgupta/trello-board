@@ -52,7 +52,7 @@ class List extends Component {
 	};
 
 	render() {
-		const { taskMap, list, index, query, dispatch } = this.props;
+		const { taskMap, list, index, query, dispatch, deleteHandler } = this.props;
 		const { id, title, taskIds } = list;
 		let tasks = taskIds.map(taskId => taskMap[taskId]);
 
@@ -68,6 +68,17 @@ class List extends Component {
 						<div className="list" {...provided.draggableProps} ref={provided.innerRef} role="list">
 							<h3 className="list-header" {...provided.dragHandleProps}>
 								{title}
+								<svg
+									viewBox="0 0 32 32"
+									className="control-icon icon icon-clear"
+									viewBox="0 0 32 32"
+									aria-hidden="true"
+									title="Delete List"
+									style={{ float: 'right', cursor: 'pointer' }}
+									onClick={() => deleteHandler(id)}
+								>
+									<path d="M7.004 23.087l7.08-7.081-7.07-7.071L8.929 7.02l7.067 7.069L23.084 7l1.912 1.913-7.089 7.093 7.075 7.077-1.912 1.913-7.074-7.073L8.917 25z" />
+								</svg>
 							</h3>
 							<Tasks tasks={tasks} id={id} deleteTask={this.deleteTask} dispatch={dispatch} />
 							<Composer title="Add Card" onSave={this.saveHandler} />

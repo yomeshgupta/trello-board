@@ -86,6 +86,17 @@ function reducer(state, action) {
 				tasks: clone
 			};
 		}
+		case STATE_ACTIONS.DELETE_LIST: {
+			const { lists } = state;
+			const clone = { ...lists };
+
+			delete clone[action.data.id];
+
+			return {
+				...state,
+				lists: clone
+			};
+		}
 		default:
 			return state;
 	}
