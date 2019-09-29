@@ -5,7 +5,7 @@ import Task from './Task';
 
 class Tasks extends Component {
 	render() {
-		const { id, tasks } = this.props;
+		const { id, tasks, deleteTask } = this.props;
 
 		return (
 			<Droppable droppableId={id} type="task">
@@ -13,7 +13,15 @@ class Tasks extends Component {
 					<div {...provided.droppableProps} ref={provided.innerRef}>
 						<div className="tasks">
 							{tasks.map((task, index) => {
-								return <Task key={`${task.id}`} {...task} id={task.id} index={index} />;
+								return (
+									<Task
+										key={`${task.id}`}
+										{...task}
+										id={task.id}
+										index={index}
+										deleteTask={deleteTask}
+									/>
+								);
 							})}
 						</div>
 						{provided.placeholder}

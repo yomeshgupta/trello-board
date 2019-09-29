@@ -28,6 +28,29 @@ class List extends Component {
 		});
 	};
 
+	deleteTask = taskId => {
+		const { list, dispatch } = this.props;
+		let taskIds = [...list.taskIds];
+
+		taskIds = taskIds.filter(id => id === taskId);
+
+		dispatch({
+			type: STATE_ACTIONS.UPDATE_LIST,
+			data: {
+				id: list.id,
+				toUpdate: {
+					taskIds
+				}
+			}
+		});
+		return dispatch({
+			type: STATE_ACTIONS.DELETE_TASK,
+			data: {
+				id: taskId
+			}
+		});
+	};
+
 	render() {
 		const { taskMap, list, index, query } = this.props;
 		const { id, title, taskIds } = list;
@@ -46,7 +69,7 @@ class List extends Component {
 							<h3 className="list-header" {...provided.dragHandleProps}>
 								{title}
 							</h3>
-							<Tasks tasks={tasks} id={id} />
+							<Tasks tasks={tasks} id={id} deleteTask={this.deleteTask} />
 							<Composer title="Add Card" onSave={this.saveHandler} />
 						</div>
 					);

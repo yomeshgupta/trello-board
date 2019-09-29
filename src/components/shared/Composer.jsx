@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 
-const Composer = ({ classNames, onSave, title }) => {
-	const [input, setInput] = useState('');
-	const [showForm, toggleForm] = useState(false);
+const Composer = ({ classNames, onSave, title, defaultValue, defaultFormValue, onCancel }) => {
+	const [input, setInput] = useState(defaultValue);
+	const [showForm, toggleForm] = useState(defaultFormValue);
 
-	const toggleHandler = () => toggleForm(state => !state);
+	const toggleHandler = () => {
+		onCancel();
+		toggleForm(state => !state);
+	};
 	const changeHandler = e => setInput(e.target.value);
 	const saveHandler = e => {
 		e.preventDefault();
@@ -59,13 +62,19 @@ const Composer = ({ classNames, onSave, title }) => {
 Composer.propTypes = {
 	classNames: Proptypes.string,
 	onSave: Proptypes.func,
+	onCancel: Proptypes.func,
+	defaultFormValue: Proptypes.bool,
+	defaultValue: Proptypes.string,
 	title: Proptypes.string
 };
 
 Composer.defaultProps = {
 	classNames: '',
+	title: 'Add Card',
 	onSave: () => {},
-	title: 'Add Card'
+	onCancel: () => {},
+	defaultFormValue: false,
+	defaultValue: ''
 };
 
 export default Composer;

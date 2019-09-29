@@ -203,8 +203,30 @@
 			flex-grow: 1 1 auto;
 			min-height: 0px;
 			max-height: 90%;
-			word-break: break-all;
+			word-break: break-word;
 			word-wrap: break-word;
+
+			.edit-icon,
+			.control-icon {
+				margin-left: 5px;
+				cursor: pointer;
+				display: none;
+			}
+
+			.edit-icon {
+				width: 12px;
+				height: 12px;
+			}
+
+			.icon.control-icon {
+				margin-left: 2px !important;
+			}
+
+			.task:hover {
+				.control-icon {
+					display: inline-block;
+				}
+			}
 			// overflow: auto;
 		}
 	}

@@ -18,33 +18,26 @@ function reducer(state, action) {
 				}
 			};
 		}
+		case STATE_ACTIONS.DELETE_TASK: {
+			const { tasks } = state;
+			const clone = { ...tasks };
+
+			delete clone[action.data.id];
+
+			return {
+				...state,
+				tasks: {
+					...state.tasks,
+					...clone
+				}
+			};
+		}
 		case STATE_ACTIONS.UPDATE_LIST_ORDER: {
 			return {
 				...state,
 				listOrder: action.data.toUpdate
 			};
 		}
-
-		case STATE_ACTIONS.ADD_TASK: {
-			return {
-				...state,
-				tasks: {
-					...state.tasks,
-					[action.data.id]: action.data
-				}
-			};
-		}
-
-		case STATE_ACTIONS.ADD_LIST: {
-			return {
-				...state,
-				lists: {
-					...state.lists,
-					[action.data.id]: action.data
-				}
-			};
-		}
-
 		case STATE_ACTIONS.UPDATE_BOOKMARK: {
 			return {
 				...state,
@@ -54,7 +47,6 @@ function reducer(state, action) {
 				}
 			};
 		}
-
 		case STATE_ACTIONS.UPDATE_BACKGROUND: {
 			return {
 				...state,
@@ -64,6 +56,24 @@ function reducer(state, action) {
 						...state.meta.background,
 						value: action.data
 					}
+				}
+			};
+		}
+		case STATE_ACTIONS.ADD_TASK: {
+			return {
+				...state,
+				tasks: {
+					...state.tasks,
+					[action.data.id]: action.data
+				}
+			};
+		}
+		case STATE_ACTIONS.ADD_LIST: {
+			return {
+				...state,
+				lists: {
+					...state.lists,
+					[action.data.id]: action.data
 				}
 			};
 		}
