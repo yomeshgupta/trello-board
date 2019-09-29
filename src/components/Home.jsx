@@ -18,17 +18,15 @@ function reducer(state, action) {
 				}
 			};
 		}
-		case STATE_ACTIONS.DELETE_TASK: {
-			const { tasks } = state;
-			const clone = { ...tasks };
-
-			delete clone[action.data.id];
-
+		case STATE_ACTIONS.UPDATE_TASK: {
 			return {
 				...state,
 				tasks: {
 					...state.tasks,
-					...clone
+					[action.data.id]: {
+						...state.tasks[action.data.id],
+						...action.data.toUpdate
+					}
 				}
 			};
 		}
@@ -77,7 +75,17 @@ function reducer(state, action) {
 				}
 			};
 		}
+		case STATE_ACTIONS.DELETE_TASK: {
+			const { tasks } = state;
+			const clone = { ...tasks };
 
+			delete clone[action.data.id];
+
+			return {
+				...state,
+				tasks: clone
+			};
+		}
 		default:
 			return state;
 	}

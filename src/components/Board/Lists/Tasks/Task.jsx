@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 import Composer from '../../../shared/Composer';
+import { STATE_ACTIONS } from '../../../../constants';
 
-const Task = ({ id, title, index, deleteTask }) => {
+const Task = ({ id, title, index, deleteTask, dispatch }) => {
 	const [edit, setEdit] = useState(false);
 	const toggleEdit = () => setEdit(state => !state);
 	const handleDelete = () => {
@@ -11,8 +12,23 @@ const Task = ({ id, title, index, deleteTask }) => {
 			return deleteTask(id);
 		}
 	};
+	const handleSave = ({ title }) => {
+		dispatch({
+			type: STATE_ACTIONS.UPDATE_TASK,
+			data: {
+				id: id,
+				toUpdate: {
+					title
+				}
+			}
+		});
+		return toggleEdit();
+	};
 
-	if (edit) return <Composer defaultValue={title} title={'Save'} onCancel={toggleEdit} defaultFormValue={true} />;
+	if (edit)
+		return (
+			<Composer defaultValue={title} title={'Save'} onCancel={toggleEdit} onSave={handleSave} defaultFormValue />
+		);
 
 	return (
 		<Draggable draggableId={id} index={index}>
