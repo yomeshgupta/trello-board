@@ -56,6 +56,19 @@ function reducer(state, action) {
 			};
 		}
 
+		case STATE_ACTIONS.UPDATE_BACKGROUND: {
+			return {
+				...state,
+				meta: {
+					...state.meta,
+					background: {
+						...state.meta.background,
+						value: action.data
+					}
+				}
+			};
+		}
+
 		default:
 			return state;
 	}

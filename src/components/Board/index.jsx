@@ -115,7 +115,14 @@ class Board extends Component {
 						/>
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
-					{showMenu ? <BoardMenu toggleMenu={this.toggleMenu} users={users} /> : null}
+					{showMenu ? (
+						<BoardMenu
+							toggleMenu={this.toggleMenu}
+							users={users}
+							background={background.value}
+							dispatch={dispatch}
+						/>
+					) : null}
 				</div>
 			</DragDropContext>
 		);

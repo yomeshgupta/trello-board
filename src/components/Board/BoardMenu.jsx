@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import Banner from '../shared/Banner';
 import Invitation from './Invitation';
+import { BACKGROUND_COLORS, STATE_ACTIONS } from '../../constants/index';
 
 const Users = ({ users = [] }) => {
 	if (!users || !users.length) return null;
@@ -38,16 +39,65 @@ const UserInvitation = () => {
 	);
 };
 
-const BoardMenu = ({ toggleMenu, users }) => {
+const Menu = ({ toggleMenu, users, background, setView }) => {
 	return (
-		<div className="board-menu">
+		<Fragment>
 			<Banner title="Menu" onClose={toggleMenu} />
 			<div className="board-menu-content">
 				<Users users={users} />
 				<UserInvitation />
+				<div className="change-bg u-text-pointer" onClick={() => setView(2)}>
+					<div
+						style={{
+							backgroundColor: background
+						}}
+					></div>
+					Change Background
+				</div>
 			</div>
-		</div>
+		</Fragment>
 	);
+};
+
+const Background = ({ dispatch, setView }) => {
+	return (
+		<Fragment>
+			<Banner title="Change Background" onClose={() => setView(1)} />
+			<ul className="bg-colors">
+				{BACKGROUND_COLORS.map(color => (
+					<li
+						key={color}
+						style={{ backgroundColor: color }}
+						className="bg-color-tile u-text-pointer"
+						onClick={() =>
+							dispatch({
+								type: STATE_ACTIONS.UPDATE_BACKGROUND,
+								data: color
+							})
+						}
+					></li>
+				))}
+			</ul>
+		</Fragment>
+	);
+};
+
+const BoardMenu = ({ toggleMenu, users, background, dispatch }) => {
+	const [view, setView] = useState(1);
+
+	function renderView() {
+		switch (view) {
+			default:
+			case 1: {
+				return <Menu toggleMenu={toggleMenu} users={users} setView={setView} background={background} />;
+			}
+			case 2: {
+				return <Background setView={setView} dispatch={dispatch} />;
+			}
+		}
+	}
+
+	return <div className="board-menu">{renderView()}</div>;
 };
 
 export default BoardMenu;

@@ -19,6 +19,7 @@ const Controls = ({ title, isBookmarked, toggleBookmark }) => {
 				padding: '10px',
 				zIndex: 999,
 				backgroundColor: 'white',
+				boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
 				left: coordinates.left,
 				right: coordinates.right,
 				top: coordinates.top + coordinates.height + 10
