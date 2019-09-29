@@ -6,4 +6,6 @@ const STATE_ACTIONS = {
 	UPDATE_BOOKMARK: 'UPDATE_BOOKMARK'
 };
 
-export { STATE_ACTIONS };
+const INVITATION_DEFAULT_MESSAGE = "I'm working on this project in Trello and wanted to share it with you!";
+
+export { STATE_ACTIONS, INVITATION_DEFAULT_MESSAGE };

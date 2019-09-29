@@ -99,6 +99,7 @@ class Board extends Component {
 			lists,
 			listOrder,
 			meta: { background, isBookmarked },
+			users,
 			dispatch
 		} = this.props;
 		const { showMenu } = this.state;
@@ -114,7 +115,7 @@ class Board extends Component {
 						/>
 						<Lists tasks={tasks} lists={lists} listOrder={listOrder} dispatch={dispatch} />
 					</div>
-					{showMenu ? <BoardMenu toggleMenu={this.toggleMenu} /> : null}
+					{showMenu ? <BoardMenu toggleMenu={this.toggleMenu} users={users} /> : null}
 				</div>
 			</DragDropContext>
 		);

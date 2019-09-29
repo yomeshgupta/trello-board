@@ -59,6 +59,12 @@ body {
 		background: hsla(0, 0%, 100%, 0.4);
 	}
 }
+.u-btn-disabled {
+	background-color: #ececec;
+	color: #9f9f9f;
+	cursor: not-allowed;
+	pointer-events: none;
+}
 
 /** ICONS START **/
 .icon {

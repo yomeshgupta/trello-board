@@ -67,7 +67,27 @@ const Board = {
 			taskIds: ['task-6']
 		}
 	},
-	listOrder: ['list-1', 'list-2', 'list-3', 'list-4']
+	listOrder: ['list-1', 'list-2', 'list-3', 'list-4'],
+	users: [
+		{
+			id: 1,
+			name: 'Yomesh Gupta',
+			image: '',
+			isOwner: true
+		},
+		{
+			id: 2,
+			name: 'Ajay Mann',
+			image: '',
+			isOwner: false
+		},
+		{
+			id: 3,
+			name: 'Prithvi Bhola',
+			image: '',
+			isOwner: false
+		}
+	]
 };
 
 export default Board;
