@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Banner from '../shared/Banner';
 import { INVITATION_DEFAULT_MESSAGE } from '../../constants/index';
 
-const Invitation = ({ onClose }) => {
+const Invitation = ({ onClose, styles = {} }) => {
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState(INVITATION_DEFAULT_MESSAGE);
 
@@ -26,8 +26,10 @@ const Invitation = ({ onClose }) => {
 		return key === 'email' ? setEmail(value) : setMessage(value);
 	}
 
+	console.log(styles);
+
 	return (
-		<div className="user-invitation">
+		<div className="user-invitation" style={{ ...styles }}>
 			<Banner title="Invite To Board" onClose={onClose} />
 			<form onSubmit={handleSubmit} style={{ margin: '20px 0px' }}>
 				<input
