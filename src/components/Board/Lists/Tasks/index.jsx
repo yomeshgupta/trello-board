@@ -5,6 +5,18 @@ import Proptypes from 'prop-types';
 import Task from './Task';
 
 class Tasks extends Component {
+	componentDidUpdate() {
+		const { id } = this.props;
+		const element = document.getElementById(`tasks-${id}`);
+		const { height = 100 } = element.getBoundingClientRect();
+
+		if (height >= 400) {
+			element.style.overflowY = 'auto';
+		} else {
+			element.style.overflowY = 'hidden';
+		}
+	}
+
 	render() {
 		const { id, tasks, deleteTask, dispatch } = this.props;
 
@@ -12,7 +24,7 @@ class Tasks extends Component {
 			<Droppable droppableId={id} type="task">
 				{provided => (
 					<div {...provided.droppableProps} ref={provided.innerRef}>
-						<div className="tasks custom-scrollbar">
+						<div className="tasks custom-scrollbar" id={`tasks-${id}`}>
 							{tasks.map((task, index) => {
 								return (
 									<Task
