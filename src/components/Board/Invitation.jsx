@@ -9,7 +9,13 @@ const Invitation = ({ onClose }) => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		// if (!value || (value && !value.trim().length)) return alert('Please enter valid email address');
+		const isInvalid = !email || !message || (email && !email.trim().length) || (message && !message.trim().length);
+
+		if (isInvalid) return alert('Please enter valid content');
+
+		alert(`Invitation sent to ${email}`);
+		setEmail('');
+		return setMessage(INVITATION_DEFAULT_MESSAGE);
 	}
 
 	function handleChange(e) {
