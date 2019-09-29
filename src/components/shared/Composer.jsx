@@ -9,6 +9,8 @@ const Composer = ({ classNames, onSave, title }) => {
 	const changeHandler = e => setInput(e.target.value);
 	const saveHandler = e => {
 		e.preventDefault();
+		if (!input || (input && !input.trim().length)) return alert('Please enter valid content.');
+
 		const id = +new Date();
 		const content = {
 			id,
