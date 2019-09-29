@@ -33,7 +33,7 @@ python3 -m http.server
 OR
 python -m SimpleHTTPServer
 OR
-Anything HTTP server you like
+Any HTTP server you like
 ```
 
 -   Go to address mentioned in the cli
