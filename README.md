@@ -1,4 +1,4 @@
-This is a simple clone of Trello like task management board. You can see the live version here -- https://trello-clone-react.netlify.com/
+This is a simple clone of Trello like task management board. You can see the live version here -- <a href="https://trello-clone-react.netlify.com/" target="_blank" rel="noopener noreferrer" title="Go to deployed version">https://trello-clone-react.netlify.com/</a>
 
 To experience this power, do the following.
 
@@ -37,3 +37,15 @@ Anything HTTP server you like
 ```
 
 -   Go to address mentioned in the cli
+
+### Functionalities
+
+-   Create Lists
+-   Create Tasks
+-   Reorder, drag & drop tasks
+-   Reorder lists
+-   Filter tasks
+-   Send invitations
+-   Update tasks
+-   Delete tasks
+-   Change background
