@@ -1,4 +1,6 @@
 import React, { useState, Fragment } from 'react';
+import Proptypes from 'prop-types';
+
 import Invitation from './Invitation';
 
 const Controls = ({ title, isBookmarked, toggleBookmark }) => {
@@ -80,6 +82,20 @@ const Menu = ({ title, isBookmarked, toggleBookmark, toggleMenu }) => {
 			</div>
 		</div>
 	);
+};
+
+Menu.propTypes = {
+	toggleBookmark: Proptypes.func,
+	toggleMenu: Proptypes.func,
+	isBookmarked: Proptypes.bool,
+	title: Proptypes.string
+};
+
+Menu.defaultProps = {
+	title: 'Menu',
+	toggleBookmark: () => {},
+	toggleMenu: () => {},
+	isBookmarked: false
 };
 
 export default Menu;

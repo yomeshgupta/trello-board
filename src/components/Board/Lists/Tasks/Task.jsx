@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import Proptypes from 'prop-types';
 
 import Composer from '../../../shared/Composer';
 import { STATE_ACTIONS } from '../../../../constants';
@@ -71,6 +72,14 @@ const Task = ({ id, title, index, deleteTask, dispatch }) => {
 			)}
 		</Draggable>
 	);
+};
+
+Task.propTypes = {
+	title: Proptypes.string.isRequired,
+	id: Proptypes.oneOfType([Proptypes.number, Proptypes.string]).isRequired,
+	id: Proptypes.number.isRequired,
+	deleteTask: Proptypes.func.isRequired,
+	dispatch: Proptypes.func.isRequired
 };
 
 export default Task;

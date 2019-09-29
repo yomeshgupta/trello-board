@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import Proptypes from 'prop-types';
 
 import Tasks from './Tasks/index';
 import Composer from '../../shared/Composer';
@@ -89,5 +90,18 @@ class List extends Component {
 		);
 	}
 }
+
+List.propTypes = {
+	taskMap: Proptypes.object.isRequired,
+	list: Proptypes.object.isRequired,
+	query: Proptypes.string,
+	index: Proptypes.oneOfType([Proptypes.number, Proptypes.string]).isRequired,
+	deleteHandler: Proptypes.func.isRequired,
+	dispatch: Proptypes.func.isRequired
+};
+
+List.defaultProps = {
+	query: ''
+};
 
 export default List;

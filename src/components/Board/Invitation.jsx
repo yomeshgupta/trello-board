@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Proptypes from 'prop-types';
 
 import Banner from '../shared/Banner';
 import { INVITATION_DEFAULT_MESSAGE } from '../../constants/index';
 
-const Invitation = ({ onClose, styles = {} }) => {
+const Invitation = ({ onClose, styles }) => {
 	const [email, setEmail] = useState('');
 	const [message, setMessage] = useState(INVITATION_DEFAULT_MESSAGE);
 
@@ -27,7 +28,7 @@ const Invitation = ({ onClose, styles = {} }) => {
 	}
 
 	return (
-		<div className="user-invitation" style={{ ...styles }}>
+		<div className="user-invitation" style={{ ...styles }} role="region">
 			<Banner title="Invite To Board" onClose={onClose} />
 			<form onSubmit={handleSubmit} style={{ margin: '20px 0px' }}>
 				<input
@@ -56,6 +57,16 @@ const Invitation = ({ onClose, styles = {} }) => {
 			</form>
 		</div>
 	);
+};
+
+Invitation.propTypes = {
+	styles: Proptypes.object,
+	onClose: Proptypes.func
+};
+
+Invitation.defaultProps = {
+	onClose: () => {},
+	styles: {}
 };
 
 export default Invitation;

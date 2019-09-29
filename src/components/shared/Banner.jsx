@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 const Banner = ({ title, onClose }) => {
 	return (
@@ -17,6 +18,16 @@ const Banner = ({ title, onClose }) => {
 			</div>
 		</header>
 	);
+};
+
+Banner.propTypes = {
+	title: Proptypes.string,
+	onClose: Proptypes.func
+};
+
+Banner.defaultProps = {
+	title: 'Banner Title',
+	onClose: () => {}
 };
 
 export default Banner;

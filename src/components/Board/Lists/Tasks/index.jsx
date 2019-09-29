@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
+import Proptypes from 'prop-types';
 
 import Task from './Task';
 
@@ -32,5 +33,12 @@ class Tasks extends Component {
 		);
 	}
 }
+
+Tasks.propTypes = {
+	tasks: Proptypes.object.isRequired,
+	id: Proptypes.oneOfType([Proptypes.number, Proptypes.string]).isRequired,
+	deleteTask: Proptypes.func.isRequired,
+	dispatch: Proptypes.func.isRequired
+};
 
 export default Tasks;

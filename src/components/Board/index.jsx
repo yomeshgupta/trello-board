@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
+import Proptypes from 'prop-types';
 
 import Menu from './Menu';
 import Lists from './Lists/index';
@@ -134,5 +135,22 @@ class Board extends Component {
 		);
 	}
 }
+
+Board.propTypes = {
+	title: Proptypes.string,
+	tasks: Proptypes.object.isRequired,
+	lists: Proptypes.object.isRequired,
+	query: Proptypes.string,
+	listOrder: Proptypes.array.isRequired,
+	users: Proptypes.array.isRequired,
+	setQuery: Proptypes.func,
+	dispatch: Proptypes.func.isRequired
+};
+
+Board.defaultProps = {
+	title: 'New Board',
+	query: '',
+	setQuery: () => {}
+};
 
 export default Board;

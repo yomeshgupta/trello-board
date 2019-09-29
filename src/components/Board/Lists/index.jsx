@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
+import Proptypes from 'prop-types';
 
 import List from './List';
 import Composer from '../../shared/Composer';
@@ -81,5 +82,17 @@ class Lists extends Component {
 		);
 	}
 }
+
+Lists.propTypes = {
+	tasks: Proptypes.object.isRequired,
+	lists: Proptypes.object.isRequired,
+	query: Proptypes.string,
+	listOrder: Proptypes.array.isRequired,
+	dispatch: Proptypes.func.isRequired
+};
+
+Lists.defaultProps = {
+	query: ''
+};
 
 export default Lists;

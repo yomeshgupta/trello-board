@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react';
+import Proptypes from 'prop-types';
 
 import Banner from '../shared/Banner';
 import Invitation from './Invitation';
@@ -123,7 +124,27 @@ const BoardMenu = ({ users, background, query, dispatch, setQuery, toggleMenu })
 		}
 	}
 
-	return <div className="board-menu">{renderView()}</div>;
+	return (
+		<div className="board-menu" role="region">
+			{renderView()}
+		</div>
+	);
+};
+
+BoardMenu.propTypes = {
+	background: Proptypes.string.isRequired,
+	tasks: Proptypes.object.isRequired,
+	lists: Proptypes.object.isRequired,
+	query: Proptypes.string,
+	users: Proptypes.array.isRequired,
+	setQuery: Proptypes.func,
+	toggleMenu: Proptypes.func.isRequired,
+	dispatch: Proptypes.func.isRequired
+};
+
+BoardMenu.defaultProps = {
+	query: '',
+	setQuery: () => {}
 };
 
 export default BoardMenu;
