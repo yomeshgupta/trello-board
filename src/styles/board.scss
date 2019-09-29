@@ -18,6 +18,25 @@
 	#board {
 		flex-direction: column;
 	}
+	.board-header {
+		display: flex;
+		min-height: 40px;
+		padding: 5px;
+		background: rgba(0, 0, 0, 0.15);
+
+		.filter-cards-form {
+			margin: 0;
+			padding: 0px;
+
+			input {
+				margin: 0 !important;
+				width: 300px;
+				max-width: 500px;
+				background: rgba(255, 255, 255, 1);
+				color: #000;
+			}
+		}
+	}
 	.menu {
 		flex-direction: row;
 		padding: 8px 4px 4px 8px;

@@ -93,7 +93,13 @@ const Filter = ({ query, setQuery, setView }) => {
 		<Fragment>
 			<Banner title="Filter Cards" onClose={() => setView(1)} />
 			<form className="filter-cards-form">
-				<input name="search" value={query} onChange={e => setQuery(e.target.value)} className="search" />
+				<input
+					name="search"
+					value={query}
+					placeholder={'What needs to be filtered?'}
+					onChange={e => setQuery(e.target.value)}
+					className="search"
+				/>
 			</form>
 		</Fragment>
 	);

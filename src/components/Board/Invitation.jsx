@@ -26,8 +26,6 @@ const Invitation = ({ onClose, styles = {} }) => {
 		return key === 'email' ? setEmail(value) : setMessage(value);
 	}
 
-	console.log(styles);
-
 	return (
 		<div className="user-invitation" style={{ ...styles }}>
 			<Banner title="Invite To Board" onClose={onClose} />
@@ -53,7 +51,7 @@ const Invitation = ({ onClose, styles = {} }) => {
 					type="submit"
 					className={`u-btn-primary u-text-pointer ${email ? '' : 'u-btn-disabled'} `}
 					disabled={email ? false : true}
-					placeholder="Send Invitation"
+					value="Send Invitation"
 				/>
 			</form>
 		</div>

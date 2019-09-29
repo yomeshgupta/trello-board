@@ -4,6 +4,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Menu from './Menu';
 import Lists from './Lists/index';
 import BoardMenu from './BoardMenu';
+import Header from './Header';
 import { STATE_ACTIONS } from '../../constants/index';
 import '../../styles/board.scss';
 
@@ -108,6 +109,7 @@ class Board extends Component {
 		return (
 			<DragDropContext onDragEnd={this.onDragEnd}>
 				<div className="board-wrapper" style={{ backgroundColor: background.value }} role="main">
+					<Header query={query} setQuery={setQuery} />
 					<div id="board" role="region">
 						<Menu
 							title={title}
