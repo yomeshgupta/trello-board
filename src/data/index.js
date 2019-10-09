@@ -1,6 +1,6 @@
 const Board = {
 	id: 1,
-	title: 'MyPat Things To Do',
+	title: 'Things To Do',
 	meta: {
 		slug: 'mypat',
 		isBookmarked: false,
@@ -12,12 +12,12 @@ const Board = {
 	tasks: {
 		'task-1': {
 			id: 'task-1',
-			title: 'Revolutionize the Indian Education System',
+			title: 'Change the world',
 			description: ''
 		},
 		'task-2': {
 			id: 'task-2',
-			title: 'Collect Feedback on current system',
+			title: 'Collect Feedback',
 			description: ''
 		},
 		'task-3': {
@@ -32,12 +32,12 @@ const Board = {
 		},
 		'task-5': {
 			id: 'task-5',
-			title: 'MyPat new features',
+			title: 'Test new features',
 			description: ''
 		},
 		'task-6': {
 			id: 'task-6',
-			title: 'Make FITJEE deal',
+			title: 'Buy Google',
 			description: ''
 		}
 	},
