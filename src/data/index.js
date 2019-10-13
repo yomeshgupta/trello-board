@@ -22,7 +22,7 @@ const Board = {
 		},
 		'task-3': {
 			id: 'task-3',
-			title: 'Hire Yomesh Gupta',
+			title: 'Hire Yomesh Gupta. Visit yomeshgupta.com',
 			description: ''
 		},
 		'task-4': {
@@ -39,6 +39,11 @@ const Board = {
 			id: 'task-6',
 			title: 'Buy Google',
 			description: ''
+		},
+		'task-7': {
+			id: 'task-7',
+			title: 'For Advanced Frontend tutorials -- Visit devtools.tech',
+			description: ''
 		}
 	},
 	lists: {
@@ -52,7 +57,7 @@ const Board = {
 			id: 'list-2',
 			title: 'In Progress',
 			description: '',
-			taskIds: ['task-3', 'task-4']
+			taskIds: ['task-3', 'task-4', 'task-7']
 		},
 		'list-3': {
 			id: 'list-3',
